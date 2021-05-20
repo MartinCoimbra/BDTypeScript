@@ -24,30 +24,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.__esModule = true;
-exports.Color = void 0;
+exports.Hijos = void 0;
 var typeorm_1 = require("typeorm");
 var Mujer_1 = require("./Mujer");
-var Color = /** @class */ (function (_super) {
-    __extends(Color, _super);
-    function Color() {
+var Hijos = /** @class */ (function (_super) {
+    __extends(Hijos, _super);
+    function Hijos() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn(),
         __metadata("design:type", Number)
-    ], Color.prototype, "id");
+    ], Hijos.prototype, "id");
     __decorate([
-        typeorm_1.Column({ length: 20, unique: true, nullable: true }),
+        typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Color.prototype, "color");
+    ], Hijos.prototype, "nombre");
     __decorate([
-        typeorm_1.ManyToMany(function () { return Mujer_1.Mujer; }),
-        typeorm_1.JoinTable(),
-        __metadata("design:type", Array)
-    ], Color.prototype, "mujeres");
-    Color = __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], Hijos.prototype, "apellido");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", Number)
+    ], Hijos.prototype, "edad");
+    __decorate([
+        typeorm_1.ManyToOne(function () { return Mujer_1.Mujer; }, function (Mujer) { return Mujer.hijos; }),
+        __metadata("design:type", Mujer_1.Mujer)
+    ], Hijos.prototype, "mujer");
+    Hijos = __decorate([
         typeorm_1.Entity()
-    ], Color);
-    return Color;
+    ], Hijos);
+    return Hijos;
 }(typeorm_1.BaseEntity));
-exports.Color = Color;
+exports.Hijos = Hijos;

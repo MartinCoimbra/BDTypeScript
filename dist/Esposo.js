@@ -49,8 +49,7 @@ var Esposo = /** @class */ (function (_super) {
         __metadata("design:type", Number)
     ], Esposo.prototype, "edad");
     __decorate([
-        typeorm_1.OneToOne(function () { return Mujer_1.Mujer; }, function (mujer) { return mujer.esposo; }) // specify inverse side as a second parameter
-        ,
+        typeorm_1.OneToOne(function () { return Mujer_1.Mujer; }, function (mujer) { return mujer.esposo; }),
         typeorm_1.JoinColumn(),
         __metadata("design:type", Mujer_1.Mujer)
     ], Esposo.prototype, "mujer");

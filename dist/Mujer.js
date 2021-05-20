@@ -27,7 +27,7 @@ exports.__esModule = true;
 exports.Mujer = void 0;
 var typeorm_1 = require("typeorm");
 var Esposo_1 = require("./Esposo");
-var Hijo_1 = require("./Hijo");
+var Hijos_1 = require("./Hijos");
 var Mujer = /** @class */ (function (_super) {
     __extends(Mujer, _super);
     function Mujer() {
@@ -50,12 +50,11 @@ var Mujer = /** @class */ (function (_super) {
         __metadata("design:type", Number)
     ], Mujer.prototype, "edad");
     __decorate([
-        typeorm_1.OneToOne(function () { return Esposo_1.Esposo; }, function (esposo) { return esposo.mujer; }) // specify inverse side as a second parameter
-        ,
+        typeorm_1.OneToOne(function () { return Esposo_1.Esposo; }, function (esposo) { return esposo.mujer; }),
         __metadata("design:type", Esposo_1.Esposo)
     ], Mujer.prototype, "esposo");
     __decorate([
-        typeorm_1.OneToMany(function () { return Hijo_1.Hijo; }, function (hijo) { return hijo.mujer; }),
+        typeorm_1.OneToMany(function () { return Hijos_1.Hijos; }, function (hijos) { return hijos.mujer; }),
         __metadata("design:type", Array)
     ], Mujer.prototype, "hijos");
     Mujer = __decorate([

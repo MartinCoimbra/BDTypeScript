@@ -1,7 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToOne, OneToMany} from "typeorm"
-
 import {Esposo} from "./Esposo"
-import {Hijo} from "./Hijo"
+import {Hijos} from "./Hijos"
 
 @Entity()
 export class Mujer extends BaseEntity {
@@ -16,10 +15,10 @@ export class Mujer extends BaseEntity {
 
     @Column()
     edad:number
-
-    @OneToOne(() => Esposo, esposo => esposo.mujer) // specify inverse side as a second parameter
+    
+    @OneToOne(() => Esposo, esposo => esposo.mujer)
     esposo: Esposo;
 
-    @OneToMany(() => Hijo, hijo => hijo.mujer)
-    hijos: Hijo[];
+    @OneToMany(()=>Hijos, hijos => hijos.mujer)
+    hijos: Hijos[];
 }
